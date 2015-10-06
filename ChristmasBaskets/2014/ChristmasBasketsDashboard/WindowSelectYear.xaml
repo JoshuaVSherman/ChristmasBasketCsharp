@@ -1,0 +1,20 @@
+﻿<Window x:Class="ChristmasBasketsDashboard.WindowSelectYear"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Select A Year" Height="268" Width="646" Icon="/Christmas%20Basket%20Dashboard;component/present.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*" />
+            <RowDefinition Height="153*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="291*" />
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="1" Margin="0,20,168,27" Name="YearsListBox" Grid.RowSpan="2" SelectionChanged="YearsListBox_SelectionChanged" HorizontalAlignment="Right" Width="140" />
+        <Button Margin="0,0,13,41" Name="DeleteYear" Click="DeleteYear_Click" Height="23" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="137" Grid.Row="1" Grid.Column="1">Delete Year__****</Button>
+        <Button Grid.Column="1" Margin="0,28,21,40" Name="SelectYear" Click="SelectYear_Click" HorizontalAlignment="Right" Width="129">Select Year__****</Button>
+        <TextBox Grid.Column="1" Margin="209,81.475,0,0" Name="YearToCreateTextBox" TextChanged="YearToCreateTextBox_TextChanged" HorizontalAlignment="Left" Width="79" Height="27.384" Grid.RowSpan="2" VerticalAlignment="Top" />
+        <Button Name="CreateYear" Grid.Column="1" HorizontalAlignment="Left" Margin="12,75,0,0" Width="152" Click="CreateYear_Click" Height="34.909" Grid.RowSpan="2" VerticalAlignment="Top">Create Year__****</Button>
+    </Grid>
+</Window>

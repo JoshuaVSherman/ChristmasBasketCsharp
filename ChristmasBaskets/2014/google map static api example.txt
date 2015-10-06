@@ -1,0 +1,7 @@
+http://maps.googleapis.com/maps/api/staticmap?center=1010%20Barrens%20Village%20Lane%20Roanoke,%20VA%2024019&zoom=15&size=1000x1000&sensor=false&markers=size:mid|color:red|1010%20Barrens%20Village%20Lane%20Roanoke,%20VA%2024019
+
+
+Notice that you don't need to do anything "special" to get this image to show up on the page. No JavaScript is required. All we needed to do was create a URL, and place it within an <img> tag. You can place a Google static map anywhere on your webpage where you can place an image.
+
+Article Reference:
+http://code.google.com/apis/maps/documentation/staticmaps/

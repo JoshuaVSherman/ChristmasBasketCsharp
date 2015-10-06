@@ -1,0 +1,33 @@
+﻿<Window x:Class="ChristmasBasketsDashboard.WindowAssignClientsToDeliverer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowAssignClientsToDeliverer" Height="753" Width="1302" Icon="/Christmas%20Basket%20Dashboard;component/present.ico">
+    <Grid Width="1287">
+        <Rectangle Height="605" HorizontalAlignment="Left" Margin="9,89,0,0" Name="rectangle3" Stroke="Black" VerticalAlignment="Top" Width="1024" />
+        <Rectangle Height="470" HorizontalAlignment="Left" Margin="1044,12,0,0" Name="rectangle2" Stroke="Black" VerticalAlignment="Top" Width="239" />
+        <Rectangle Height="168" HorizontalAlignment="Left" Margin="1058,494,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="207" />
+        <TextBox HorizontalAlignment="Left" Margin="1088,538,0,0" Name="ClientIDTextBox" Width="92" Height="23" VerticalAlignment="Top" />
+        <Button Content="Assign Client" Height="23" HorizontalAlignment="Left" Margin="1088,575,0,0" Name="AssignClientButton" VerticalAlignment="Top" Width="92" Click="AssignClientButton_Click" />
+        <Button Content="Remove Client" Height="23" HorizontalAlignment="Left" Margin="1088,616,0,0" Name="RemoveClientButton" VerticalAlignment="Top" Width="92" Click="RemoveClientButton_Click" />
+        <Label Content="Client ID to Assign or Remove" Height="34" HorizontalAlignment="Left" Margin="1069,500,0,0" Name="ClientIDLabel" VerticalAlignment="Top" Width="170" />
+        <DataGrid AutoGenerateColumns="True" Height="71" HorizontalAlignment="Left" Margin="128,12,0,0" Name="DelivererInfoDataGrid" VerticalAlignment="Top" Width="905" ItemsSource="{Binding currentDelivererCollectionView}" LoadingRow="DelivererInfoDataGrid_LoadingRow" />
+        <Button Content="Refresh Map" HorizontalAlignment="Left" Margin="1049,368,0,0" Name="RefreshMap" Width="226" Click="RefreshMapButton_Click" Height="23" VerticalAlignment="Top" />
+        <ListBox Height="90" HorizontalAlignment="Left" Margin="1049,40,0,0" Name="RefreshMapListBox" VerticalAlignment="Top" Width="226" ItemsSource="{Binding}" DataContext="{Binding}">
+            <ListBoxItem Content="All Clients" />
+            <ListBoxItem Content="Assigned Clients" />
+            <ListBoxItem Content="Unassigned Clients" />
+            <ListBoxItem Content="Current Deliverer and Unassigned Clients" />
+            <ListBoxItem Content="Current Deliverer" />
+        </ListBox>
+        <Label Content="Refresh Map Mode" Height="28" HorizontalAlignment="Left" Margin="1111,16,0,0" Name="RefreshMapModeLabel" VerticalAlignment="Top" Width="110" />
+        <Label Content="Deliverer Info" Height="34" HorizontalAlignment="Left" Margin="9,32,0,0" Name="ClientInfoLabel" VerticalAlignment="Top" Width="113" IsEnabled="False" FontWeight="Bold" FontSize="16" FontFamily="]" />
+        <Button Content="Clear" Height="23" HorizontalAlignment="Right" Margin="0,538,40,0" Name="ClearButton" VerticalAlignment="Top" Width="43" Click="ClearButton_Click" />
+        <WebBrowser Height="571" HorizontalAlignment="Left" Margin="20,108,0,0" Name="mapBrowser" VerticalAlignment="Top" Width="1000" />
+        <Label Content="Available Zipcodes" Height="28" HorizontalAlignment="Left" Margin="1111,136,0,0" Name="AvailableZipcodesLabel" VerticalAlignment="Top" Width="110" />
+        <ListBox Height="175" HorizontalAlignment="Left" Margin="1049,170,0,0" Name="ZipcodeListbox" VerticalAlignment="Top" Width="226" />
+        <Label Content="Clients Displayed" Height="28" HorizontalAlignment="Left" Margin="1050,411,0,0" Name="ClientsToDisplayLabel" VerticalAlignment="Top" />
+        <Label Content="Total Clients to Display" Height="28" HorizontalAlignment="Left" Margin="1050,438,0,0" Name="TotalClientsToDisplayLabel" VerticalAlignment="Top" />
+        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="1204,411,0,0" Name="ClientsToDisplayValueLabel" VerticalAlignment="Top" />
+        <Label Content="0" Height="28" HorizontalAlignment="Left" Margin="1204,438,0,0" Name="TotalClientsToDisplayValueLabel" VerticalAlignment="Top" />
+    </Grid>
+</Window>

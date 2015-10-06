@@ -1,0 +1,27 @@
+1
+map and text directions from a start point to an end point:
+
+http://code.google.com/apis/maps/documentation/javascript/examples/directions-panel.html
+
+article reference:
+
+http://code.google.com/apis/maps/documentation/javascript/services.html#DisplayingResults
+
+
+
+
+
+2
+map and text directions from start point with way points to end point:
+
+http://code.google.com/apis/maps/documentation/javascript/examples/directions-waypoints.html
+
+article reference:
+
+http://code.google.com/apis/maps/documentation/javascript/services.html#Waypoints
+
+
+
+We want to use number 1 but with waypoints in number 2
+
+example_template.hmtl is close to what we want except without graphical boxes for inputs

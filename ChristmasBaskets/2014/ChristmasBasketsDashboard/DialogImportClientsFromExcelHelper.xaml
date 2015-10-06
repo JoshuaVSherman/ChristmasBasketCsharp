@@ -1,0 +1,26 @@
+﻿<Window x:Class="ChristmasBasketsDashboard.ImportClientsFromExcelHelper"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+    xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    Title="ImportClientsFromExcelHelper" Height="787" Width="1504" Icon="/Christmas%20Basket%20Dashboard;component/present.ico">
+    <Grid>
+        <wfi:WindowsFormsHost Margin="20,298.393,44.015,233.38">
+            <wf:DataGrid x:Name="BottomTable">
+            </wf:DataGrid>
+        </wfi:WindowsFormsHost>
+        <wfi:WindowsFormsHost Margin="20,138.361,44,0" Height="94" VerticalAlignment="Top">
+            <wf:DataGrid x:Name="TopTable">
+            </wf:DataGrid>
+        </wfi:WindowsFormsHost>
+        <Label Margin="390.078,76.682,371.741,0" Name="TopTableLabel" FontSize="28" Height="46.158" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Top Table Label</Label>
+        <Label FontSize="28" Margin="390.078,188.371,380.076,301.727" Name="BottomTableLabel" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Bottom Table Label</Label>
+        <Label Height="50.01" Margin="0,15.003,0,0" Name="actionLabel" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0" FontSize="24" Background="SlateBlue" Foreground="White">Label</Label>
+        <Button Height="28.339" HorizontalAlignment="Left" Margin="20.015,0,0,161.699" Name="DeleteSelectedClientsButton" VerticalAlignment="Bottom" Width="526.772" Click="DeleteSelectedClientButton_Click">Delete Selected Client</Button>
+        <Button Height="28.339" Margin="676.802,0,278.389,161.699" Name="AddSelectedClientsButton" VerticalAlignment="Bottom" Click="AddClientToSelectedYearTableButton_Click">Add Selected Client</Button>
+        <Button Height="28.339" Margin="676.802,0,278.389,108" Name="UpdateClientInformationButton" VerticalAlignment="Bottom" Click="UpdateClientInformationButton_Click">Update Selected Client</Button>
+        <Button Height="30.006" HorizontalAlignment="Left" Margin="20.015,0,0,81.683" Name="AddSelectedClientToClientsAndSelectedTableButton" VerticalAlignment="Bottom" Width="526.772" Click="AddSelectedClientToClientsAndSelectedYearTableButton_Click">Add Selected Client To Clients And Selected Table</Button>
+        <Button Height="23" Margin="676.802,0,595,55" Name="QuitClientImport" VerticalAlignment="Bottom" Click="QuitClientImport_Click">Quit Client Import</Button>
+        <Button Height="23" Margin="0,0,278.389,55" Name="Done" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="210.198" Click="Done_Click" >Done</Button>
+    </Grid>
+</Window>

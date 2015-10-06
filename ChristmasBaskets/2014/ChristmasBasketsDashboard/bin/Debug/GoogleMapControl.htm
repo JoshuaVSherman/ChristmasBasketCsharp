@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+      <style type="text/css">
+         html { height: 100% }
+         body { height: 100%; margin: 0; padding: 0 }
+         #map_canvas { height: 100% }
+      </style>
+      <!--[if IE]> <script type="text/javascript" src="ie-set_timeout.js"></script> <![endif]-->
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      <script type="text/javascript">
+
+      var geocoder;
+      var map;
+      var markers = [];
+      var showMarkerMode = 2;	//0 = All Clients, 1 = Only Assigned Clients, 2 = Only Unassigned Clients, 3 = Current Deliverer Assigned and Unassigned Clients, 4 = Only Current Deliverer Assigned Clients
+      var assignedClientToCurrentDelivererImage = "AssignedClientToCurrentDeliverer.png";
+      var assignedClientToOtherDelivererImage = "AssignedClientToOtherDeliverer.png";
+      var unassignedClientImage = "UnassignedClient.png";
+      var mapCenterAddress = "2147 Dale Avenue Southeast Roanoke, VA 24013";
+      var addresses = ["3038 Melrose Ave. NW, Apt. 823 Roanoke, VA  null","3038 Melrose Ave. NW, Apt. 403 Roanoke, VA  null","1630 Saunja Circle, Apt. E Vinton, VA  null","927 Kyle Ave. NE Roanoke, VA  24012","3038 Melrose Ave. NW, Apt. 412 Roanoke, VA  null","3038 Melrose Ave. NW, Apt. 314 Roanoke, VA  null","3038 Melrose Ave. NW, Apt. 810 Roanoke, VA  null","856 Coolbrooke Rd., Apt. 3 Roanoke, VA  null","2315 Larchwood Street NE Roanoke, VA  24012","1523 Queen Ann Dr., S.E. Roanoke, VA  24014","3106 Ellsworth St., N.E.   Roanoke, VA  24012","3105 Ellsworth St. NE Roanoke, VA  null","1725 Saunja Circle, Apt. B Vinton, VA  null","2810 Bluestone Ave. NE Roanoke, VA  null","3038 Melrose Ave. NW, Apt. 818 Roanoke, VA  null","1234 Liberty Road, Apt. H Roanoke, VA  24012","4882 Mews Hill Drive Roanoke , VA  24018","2121 Ruritan Road Roanoke, VA  24012","3306 Mt Pleasant Blvd Lot 5 Roanoke , VA  24014","1701 11th Street NE Roanoke, VA  24012","1547 Riverdale Rd. SE Roanoke, VA  24014","155 Avendale Ave., N.E. Apt. 4 Roanoke, VA  24012","718 E 6th Street, Apt. 4 Salem, VA  24153","2714  Sand Road NE Roanoke, VA  24017"];
+      var clients = ["4651 - Butler, John","4656 - Clingenpeel, David","4658 - Coffey, Joyce","4477 - Croote, Norma","4683 - Hairston, James","4700 - Holmes, Harold","4712 - Kelly, Eugenia","4724 - Long, Patricia","4732 - Martin, Shirley","4243 - Mukuay, Achol","4248 - Paxton, Helena","4746 - Payne, Betty","4747 - Peters, Shirley","4749 - Poteet, Mary","4752 - Quarles, Danny","4754 - Reddicks, Ebony","4339 - Ross , Stephanie ","4763 - Saul, James and Dora","4346 - Thornhill , Charlotte","4788 - Tyree, Ruby","4789 - Via, Genell","4523 - Westmoreland, Susan","4794 - Williams, Jessie","4281 - Williams, Willie"];
+      var clientsAssigned = ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"];  //0 - Client unassigned, 1 - client assigned to current deliverer the htm file represents, 2 - client assigned to another deliverer other than current deliverer htm file represents
+      var clientIDs = ["4651","4656","4658","4477","4683","4700","4712","4724","4732","4243","4248","4746","4747","4749","4752","4754","4339","4763","4346","4788","4789","4523","4794","4281"];
+
+      function initialize()
+      {
+         //Create map options
+         var myOptions = {mapTypeId: google.maps.MapTypeId.ROADMAP};
+
+         //Create map and geocoder
+         map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+         geocoder = new google.maps.Geocoder();
+         //Show all addresses
+         for (i in clients)
+         {
+            address = addresses[i];
+            client = clients[i];
+            clientAssigned = clientsAssigned[i];
+            delay = i * 1000;
+            setTimeout(showAddress, delay, address, client, clientAssigned);
+         }
+
+         //Center the Map
+         centerMap(mapCenterAddress, 12);
+      }
+
+      //Show a single address with client info
+      function showAddress(address, client, assigned)
+      {
+          geocoder.geocode( { 'address': address},
+                              function(results, status)
+                              {
+                                 //Make sure we got a good result
+                                 if (status == google.maps.GeocoderStatus.OK)
+                                 {
+                                    //Temporary working marker
+                                    var marker;
+
+                                    //Create and display marker based on assigned status
+                                    if(assigned == "0")
+                                    {
+                                       //Client is not assigned to any deliverer
+                                       marker = new google.maps.Marker({map: map, position: results[0].geometry.location, title: client + "\n" + address, icon: unassignedClientImage});
+                                    }
+                                    else if(assigned == "1")
+                                    {
+                                       //Client is assigned to current deliverer
+                                       marker = new google.maps.Marker({map: map, position: results[0].geometry.location, title: client + "\n" + address, icon: assignedClientToCurrentDelivererImage});
+                                    }
+                                    else if(assigned == "2")
+                                    {
+                                       //Client is assigned to another deliverer other than current
+                                       marker = new google.maps.Marker({map: map, position: results[0].geometry.location, title: client + "\n" + address, icon: assignedClientToOtherDelivererImage});
+                                    }
+
+                                    //Determine if we should show the Marker based on showMarkerMode
+
+                                    //Show All Clients
+                                    if(showMarkerMode == 0)
+                                    {
+                                       marker.setMap(map);
+                                    }
+                                    //Show Only Assigned Clients
+                                    else if(showMarkerMode == 1 || showMarkerMode == 4)
+                                    {
+                                       //If the client is not assigned - do not show on the map
+                                       if(assigned == "0")
+                                       {
+                                          marker.setMap(null);
+                                       }
+                                       else
+                                       {
+                                          marker.setMap(map);
+                                       }
+                                    }
+                                    //Show Only Unassigned Clients
+                                    else if(showMarkerMode == 2)
+                                    {
+                                       //If the client is assigned - do not show on the map
+                                       if(assigned != "0")
+                                       {
+                                          marker.setMap(null);
+                                       }
+                                       else
+                                       {
+                                          marker.setMap(map);
+                                       }
+                                    }
+                                    //Show Only Unassigned Clients and Clients that below to current Deliverer
+                                    else if(showMarkerMode == 3)
+                                    {
+                                       //If the client is assigned to the current deliverer or Unassigned - show on the map
+                                       if(assigned == "0"  || assigned == "1")
+                                       {
+                                          marker.setMap(map);
+                                       }
+                                       else
+                                       {
+                                          marker.setMap(null);
+                                       }
+                                    }
+
+                                    //Add marker to marker array
+                                    markers.push(marker);
+                                 }
+                                 else
+                                 {
+                                    //Alert - Geocode not successful
+                                    alert("showAddress - Geocode of (" + address + ") was not successful for the following reason: (" + status + ")");
+                                 }
+                              });
+      }
+
+      //Show a single address with client info
+      function centerMap(address, zoom)
+      {
+         geocoder.geocode( { 'address': address},
+                           function(results, status)
+                           {
+                              //Make sure we got a good result
+                              if (status == google.maps.GeocoderStatus.OK)
+                              {
+                                 //Center Map
+                                 map.setCenter(results[0].geometry.location);
+
+                                 //Set Map Zoom
+                                 map.setZoom(zoom);
+                              }
+                              else
+                              {
+                                 //Alert - Geocode not successful
+                                 alert("centerMap - Geocode of (" + address + ") was not successful for the following reason: (" + status + ")");
+                              }
+                           });
+      }
+
+      //Assign Client
+      function assignClient(clientID)
+      {
+         var clientIndex = -1;
+
+         //Find index for Client in the ClientIDs array
+         for(i in clientIDs)
+         {
+            if(clientIDs[i] == clientID)
+            {
+               clientIndex = i;
+               break;
+            }
+         }
+         //See if clientIndex was found
+         if(clientIndex > -1)
+         {
+            if(markers)
+            {
+               //Alter Marker
+               markers[clientIndex].setIcon(assignedClientToCurrentDelivererImage);
+
+               //Determine if we should show the Marker based on showMarkerMode
+
+               //Show All Clients
+               if(showMarkerMode == 0)
+               {
+               //We are assigning a client and we should display All Clients - show clinet on the map
+               markers[clientIndex].setMap(map);
+               }
+               //Show Only Assigned Clients
+               else if(showMarkerMode == 1  || showMarkerMode == 4)
+               {
+                  //We are assigning a client and we should display only Assigned Clients - show client on the map
+                  markers[clientIndex].setMap(map);
+               }
+               //Show Only Unassigned Clients
+               else if(showMarkerMode == 2)
+               {
+                  //We are assigning a client and we should display only UnassignedClients - do not show client on the map
+                  markers[clientIndex].setMap(null);
+               }
+
+               //Update clients Assigned
+               clientsAssigned[clientIndex] = "1";
+            }
+            else
+            {
+               //Alert - markers[] is null
+               alert("assignClient - markers[] is null");
+            }
+         }
+         else
+         {
+         //Alert - clientID does not exits
+         alert("assignClient - ClientID (" + clientID + ") not found in ClientIDs array");
+         }
+      }
+
+      //Unassign Client
+      function unassignClient(clientID)
+      {
+         var clientIndex = -1;
+
+         //Find index for Client in the ClientIDs array
+         for(i in clientIDs)
+         {
+            if(clientIDs[i] == clientID)
+            {
+               clientIndex = i;
+               break;
+            }
+         }
+         //See if clientIndex was found
+         if(clientIndex > -1)
+         {
+            if(markers)
+            {
+               //Alter Marker
+               markers[clientIndex].setIcon(unassignedClientImage);
+
+               //Determine if we should show the Marker based on showMarkerMode
+
+               //Show All Clients
+               if(showMarkerMode == 0)
+               {
+               //We are unassigning a client and we should display All Clients - show clinet on the map);
+               markers[clientIndex].setMap(map);
+               }
+               //Show Only Assigned Clients
+               else if(showMarkerMode == 1  || showMarkerMode == 4)
+               {
+                  //We are unassigning a client and we should display only Assigned Clients - do not show client on the map
+                  markers[clientIndex].setMap(null);
+               }
+               //Show Only Unassigned Clients
+               else if(showMarkerMode == 2)
+               {
+                  //We are unassigning a client and we should display only UnassignedClients - show client on the map
+                  markers[clientIndex].setMap(map);
+               }
+
+               //Update clients Assigned
+               clientsAssigned[clientIndex] = "0";
+            }
+            else
+            {
+               //Alert - markers[] is null
+               alert("unassignClient - markers[] is null");
+            }
+         }
+         else
+         {
+         //Alert - clientID does not exits
+         alert("unassignClient - ClientID (" + clientID + ") not found in ClientIDs array");
+         }
+      }
+      </script>
+   </head>
+
+   <body onload="initialize()">
+      <div id="map_canvas" style="height:90%;top:30px"></div>
+   </body>
+</html>
