@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+      <title>Deliverer(361):  Rick Landman</title>
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      <script type="text/javascript">
+
+      var map;
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+      var directionsService = new google.maps.DirectionsService();
+      var start = "525 McClelland Street, Salem, VA 24153";
+      var end = "5432 CLEARWOOD DR. ROANOKE, VA  24014";
+      var addresses = ["2251 Mountain View Terrrace SW, Apt. 2 Roanoke, VA  24015","1150 Kerns Ave Roanoke , VA  24015","1523 Bluemont Ave., S.W. Apt. 73 Roanoke, VA  24015","2763 Colonial Ave., S.W. Roanoke, VA  24015","3520 Robyn Rd., S.W. Roanoke, VA  24015","3469 Yellow Mountain Road  Roanoke, VA  24014","5183 Yellow Mountain Rd Lot 104 Roanoke , VA  24014","5479 INDIAN GRAVE RD. ROANOKE, VA  24014"];
+
+      var unassignedClientImage = "UnassignedClient.png";
+      var mapCenterAddress = "2147 Dale Avenue Southeast Roanoke, VA 24013";
+      function initialize()
+      {
+         //Create map options
+         var myOptions = {mapTypeId: google.maps.MapTypeId.ROADMAP};
+
+         //Create map and direction display
+         map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+         directionsDisplay.setMap(map);
+         directionsDisplay.setPanel(document.getElementById("directions_panel"));
+
+         //Calculate the proper route
+         calcRoute();
+      }
+
+      //Calculate Client Route
+      function calcRoute()
+      {
+         //Build waypoints object
+         var waypts = [];
+
+         for (var i = 0; i < addresses.length; i++)
+         {
+            waypts.push({location:addresses[i],stopover:true});
+         }
+
+         //Build Request
+         var request = {
+         origin: start,
+         destination: end,
+         waypoints: waypts,
+         optimizeWaypoints: true,
+         travelMode: google.maps.DirectionsTravelMode.DRIVING};
+
+         //Show directions
+         directionsService.route(request,
+         function(response, status)
+         {
+            if (status == google.maps.DirectionsStatus.OK)
+            {
+               directionsDisplay.setDirections(response);
+            }
+            else
+            {
+               //Alert - Route Generation not successful
+               alert("calcRoute - Route Generation was not successful for the following reason: (" + status + ")");
+            }
+         });
+      }
+
+      </script>
+   </head>
+
+   <body onload="initialize()">
+      <!-- General Instructions -->
+      <h2>General Instructions:</h2>
+      <p>If a box cannot be delivered, call Dick Stanfield at 540-353-7977 for assistance.  If there is still
+      a problem, please return the box to GE at 1501 Roanoke Blvd Salem, VA 24153 with the Client ID written on the box.</p>
+
+      <!-- Deliverer -->
+      <h2>Deliverer:   Landman, Rick - Assigned Number of Clients (10)</h2>
+
+      <!-- Google Map -->
+      <h2>Route:</h2>
+      <div id="map_canvas" style="width:800px; height:800px;"></div>
+      <div style="page-break-before:always;"></div>
+
+      <!-- Google Directions -->
+      <h2>Directions:</h2>
+      <div id="directions_panel"></div>
+      <div style="page-break-before:always;"></div>
+
+      <!-- Client Information Table-->
+      <h2 align = "left">Client Information</h2>
+      <table align = "left" width="100%" border="1">
+      <!-- Table Headings -->
+      <tr>
+         <th width = "10%">Client ID</th>
+         <th width = "20%">Client Name</th>
+         <th width = "30%">Street Address</th>
+         <th width = "10%">City</th>
+         <th width = "10%">Zip</th>
+         <th width = "10%">Phone</th>
+         <th width = "10%">Organization</th>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4435</td>
+         <td>Patricia Ross</td>
+         <td>2251 Mountain View Terrrace SW, Apt. 2</td>
+         <td>Roanoke</td>
+         <td>24015</td>
+         <td>540-632-6876</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>3252</td>
+         <td>HELEN EVANS</td>
+         <td>1150 Kerns Ave</td>
+         <td>Roanoke </td>
+         <td>24015</td>
+         <td>206-5069</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4386</td>
+         <td>William Fo re</td>
+         <td>1523 Bluemont Ave., S.W. Apt. 73</td>
+         <td>Roanoke</td>
+         <td>24015</td>
+         <td>540-397-4030</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4004</td>
+         <td>Marlene Gromada</td>
+         <td>2763 Colonial Ave., S.W.</td>
+         <td>Roanoke</td>
+         <td>24015</td>
+         <td>540-982-1932</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4180</td>
+         <td>Carol Camp</td>
+         <td>3520 Robyn Rd., S.W.</td>
+         <td>Roanoke</td>
+         <td>24015</td>
+         <td>540-491-9221</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4446</td>
+         <td>Vivian Stevens</td>
+         <td>3469 Yellow Mountain Road </td>
+         <td>Roanoke</td>
+         <td>24014</td>
+         <td>540-427-2729 </td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4121</td>
+         <td>Alfred Horton</td>
+         <td>5183 Yellow Mountain Rd Lot 104</td>
+         <td>Roanoke </td>
+         <td>24014</td>
+         <td>769-3900</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>3138</td>
+         <td>LYNETTE HORTON</td>
+         <td>5479 INDIAN GRAVE RD.</td>
+         <td>ROANOKE</td>
+         <td>24014</td>
+         <td>989-0403</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4119</td>
+         <td>Henry HARRISON</td>
+         <td>5432 CLEARWOOD DR.</td>
+         <td>ROANOKE</td>
+         <td>24014</td>
+         <td>989-3809</td>
+         <td>RCSS</td>
+      </tr>
+      </table>
+      <!-- Client Specific Notes -->
+      <h2 align = "left">Client Specific Notes</h2>
+      <table align = "left" width="100%" border="1">
+      <!-- Table Headings -->
+      <tr>
+         <th width = "10%">Client ID</th>
+         <th width = "20%">Client Name</th>
+         <th width = "70%">Comments</th>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4435</td>
+         <td>Patricia Ross</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>3252</td>
+         <td>HELEN EVANS</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4386</td>
+         <td>William Fo re</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4004</td>
+         <td>Marlene Gromada</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4180</td>
+         <td>Carol Camp</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4446</td>
+         <td>Vivian Stevens</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4121</td>
+         <td>Alfred Horton</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>3138</td>
+         <td>LYNETTE HORTON</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4119</td>
+         <td>Henry HARRISON</td>
+         <td>null</td>
+      </tr>
+      </table>
+   </body>
+</html>

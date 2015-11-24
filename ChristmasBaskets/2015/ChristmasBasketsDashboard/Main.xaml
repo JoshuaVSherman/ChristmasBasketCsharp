@@ -1,0 +1,112 @@
+﻿<Window x:Class="ChristmasBasketsDashboard.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Christmas Baskets Dashboard" Height="519" Width="833" MouseEnter="Window_MouseEnter" Icon="/Christmas%20Basket%20Dashboard;component/present.ico">
+    <Grid Width="770" Height="438">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="584*" />
+        </Grid.ColumnDefinitions>
+        <TabControl Name="tabControl1" Grid.Column="3">
+            <TabItem Header="Connect To Database" Name="tabItem1">
+                <Grid>
+                    <Button Height="25" HorizontalAlignment="Left" Margin="10,49.98,0,0" Name="OpenDatabase" VerticalAlignment="Top" Width="130" Click="OpenDatabase_Click">Open Database</Button>
+                    <Rectangle Fill="CornflowerBlue" Height="10" HorizontalAlignment="Left" Margin="152,57.98,0,0" Name="OpenDatabaseIndicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Button Height="25" HorizontalAlignment="Left" Margin="10,89.98,0,0" Name="SelectYearButton" VerticalAlignment="Top" Width="130" Click="SelectYearButton_Click">Select Year</Button>
+                    <Button Height="25" HorizontalAlignment="Left" Margin="10,131.98,0,0" Name="CloseDatabase" VerticalAlignment="Top" Width="130" Click="CloseDatabase_Click">Close Database</Button>
+                    <Label Height="25" HorizontalAlignment="Left" Margin="152,89.98,0,0" Name="SelectedYearLabel" VerticalAlignment="Top" Width="121">No Year Selected</Label>
+                    <Label FontSize="18" Height="37" HorizontalAlignment="Left" Margin="10,10,0,0" Name="OpenDatabaseLabel" VerticalAlignment="Top" Width="145">Open Database</Label>
+                    <Label Content="Selected Year Status" FontSize="18" Height="37" HorizontalAlignment="Left" Margin="379,10,0,0" Name="SelectedYearStatusLabel" VerticalAlignment="Top" Width="178" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="379,58,0,0" Name="Step_1_Year_Created_In_Database_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="379,82,0,0" Name="Step_2_Clients_Imported_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="379,129,0,0" Name="Step_3_Green_Cards_Generated_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="379,155,0,0" Name="Step_4_Deliverers_Imported_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="379,181,0,0" Name="Step_5_Clients_Assigned_To_Deliverers_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="379,208,0,0" Name="Step_6_Generated_Deliverer_Maps_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="379,239,0,0" Name="Step_7_Day_Of_Event_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="422,263,0,0" Name="Step_7_a_Generate_Unassigned_Clients_Map_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="422,290,0,0" Name="Step_7_b_Generate_Client_Lists_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="422,318,0,0" Name="Step_7_c_Generate_Food_Signs_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="422,346,0,0" Name="Step_7_d_Generate_Box_Labels_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Label Content="Step 1 - Year Created In Database" Height="25" HorizontalAlignment="Left" Margin="417,49,0,0" Name="Step_1_Year_Created_In_Database_Indicator_Label" VerticalAlignment="Top" Width="314" />
+                    <Label Content="Step 2 - Clients Imported" Height="25" HorizontalAlignment="Left" Margin="417,72,0,0" Name="Step_2_Clients_Imported_Indicator_Label" VerticalAlignment="Top" Width="314" />
+                    <Label Content="Step 3 - Green Cards Generated" Height="25" HorizontalAlignment="Left" Margin="417,121,0,0" Name="Step_3_Green_Cards_Generated_Indicator_Label" VerticalAlignment="Top" Width="314" />
+                    <Label Content="Step 4 - Deliverers Imported" Height="25" HorizontalAlignment="Left" Margin="417,147,0,0" Name="Step_4_Deliverers_Imported_Indicator_Label" VerticalAlignment="Top" Width="314" />
+                    <Label Content="Step 5 - Clients Assigned To Deliverers" Height="25" HorizontalAlignment="Left" Margin="417,173,0,0" Name="Step_5_Clients_Assigned_To_Deliverers_Indicator_Label" VerticalAlignment="Top" Width="314" />
+                    <Label Content="Step 6 - Generated Deliverer Maps" Height="25" HorizontalAlignment="Left" Margin="417,200,0,0" Name="Step_6_Generated_Deliverer_Maps_Indicator_Label" VerticalAlignment="Top" Width="314" />
+                    <Label Content="Step 7 - Day Of Event" Height="25" HorizontalAlignment="Right" Margin="0,232,90,0" Name="Step_7_Day_Of_Event_Indicator_Indicator" VerticalAlignment="Top" Width="253" />
+                    <Label Content="Step 7a - Generate Unassigned Clients Map" Height="25" HorizontalAlignment="Left" Margin="471,255,0,0" Name="Step_7_a_Generate_Unassigned_Clients_Map_Indicator_Label" VerticalAlignment="Top" Width="260" />
+                    <Label Content="Step 7b - Generate Client Lists" Height="25" HorizontalAlignment="Left" Margin="471,282,0,0" Name="Step_7_b_Generate_Client_Lists_Indicator_Label" VerticalAlignment="Top" Width="260" />
+                    <Label Content="Step 7c - Generate Food Signs" Height="25" Margin="471,310,29,0" Name="Step_7_c_Generate_Food_Signs_Indicator_Label" VerticalAlignment="Top" />
+                    <Label Content="Step 7d - Generate Box Labels" Height="25" HorizontalAlignment="Left" Margin="471,338,0,0" Name="Step_7_d_Generate_Box_Labels_Indicator_Label" VerticalAlignment="Top" Width="260" />
+                    <Rectangle Fill="LightGray" Height="10" HorizontalAlignment="Left" Margin="422,105,0,0" Name="Step_2_a_Check_For_Client_Duplicates_Indicator" Stroke="Black" VerticalAlignment="Top" Width="32" />
+                    <Label Content="Step 2a - Check for Client Duplicates" Height="25" HorizontalAlignment="Right" Margin="0,97,29,0" Name="Step_2_a_Check_For_Client_Duplicates_Label" VerticalAlignment="Top" Width="260" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Import Clients From Excel" Name="tabItem2">
+                <Grid>
+                    <Button Height="35" HorizontalAlignment="Left" Margin="13,180,0,0" Name="ImportSelectedYearClientsFromExcelButton" VerticalAlignment="Top" Width="260" Click="ImportSelectedYearClientsFromExcelButton_Click">Import Selected Year Clients From Excel</Button>
+                    <Label FontSize="18" Height="37" HorizontalAlignment="Left" Margin="10,137,0,0" Name="ImportClientsFromExcelLabel" VerticalAlignment="Top" Width="391">Import Clients Into Selected Year From Excel</Label>
+                    <Button HorizontalAlignment="Left" Margin="13,0,0,58" Name="ClearSelectedYearBoxNumbersButton" Width="240" Height="36" VerticalAlignment="Bottom" Click="SetSelectedYearBoxNumbersButton_Click">Set Selected Year Box Numbers</Button>
+                    <Label FontSize="18" HorizontalAlignment="Left" Margin="10,267,0,87" Name="SetSelectedYearBoxNumbersLabel" Width="263">Set Selected Year Box Numbers</Label>
+                    <Label Content="Check for Duplicates" FontSize="18" Height="37" HorizontalAlignment="Left" Margin="13,18,0,0" Name="CheckForDuplicatesLabel" VerticalAlignment="Top" Width="391" />
+                    <Button Content="Check For Duplicates" Height="35" HorizontalAlignment="Left" Margin="13,61,0,0" Name="CheckForDuplicatesButton" VerticalAlignment="Top" Width="260" Click="CheckForDuplicatesButton_Click" />
+                    <TextBlock Height="51" HorizontalAlignment="Left" Margin="293,61,0,0" Name="CheckForDuplicatesTipsLabel" Text="Put LOA and RCSS Lists in one Excel file, format all cells as TEXT, use this file for the duplicate checking" TextWrapping="Wrap" VerticalAlignment="Top" Width="394" FontSize="14" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Green Cards" Name="tabItem3">
+                <Grid>
+                    <Button Height="38" HorizontalAlignment="Left" Margin="11,76,0,0" Name="ExportClientsToExcel" VerticalAlignment="Top" Width="240" Click="ExportClientsToExcel_Click">Export Selected Year Clients To Excel</Button>
+                    <ComboBox Height="26" HorizontalAlignment="Left" Margin="11,127,0,0" Name="SelectOrganizationComboBox" SelectedIndex="0" VerticalAlignment="Top" Width="240" SelectionChanged="SelectOrganizationComboBox_SelectionChanged">
+                        <ComboBoxItem>Select Organization</ComboBoxItem>
+                        <ComboBoxItem>LOA (League Of Old Americans)</ComboBoxItem>
+                        <ComboBoxItem>RCSS (Roanoke County Social Services)</ComboBoxItem>
+                        <ComboBoxItem>LOA and RCSS</ComboBoxItem>
+                    </ComboBox>
+                    <Label FontSize="18" Height="37" HorizontalAlignment="Left" Margin="10,10,0,0" Name="ExportClientsToExcelLabel" VerticalAlignment="Top" Width="240">Export Clients To Excel</Label>
+                    <Label FontSize="12" Height="26" HorizontalAlignment="Left" Margin="11,43,0,0" Name="label1" VerticalAlignment="Top" Width="262">Give to LOA and RCSS and use for Green Cards</Label>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Deliverer Assignment" Name="tabItem4">
+                <Grid>
+                    <Label FontSize="18" Margin="22,20,0,0" Name="UpdateClientsFromCurrentYearDelivererListLabel" Height="37.04" VerticalAlignment="Top" HorizontalAlignment="Left" Width="165">Import Deliverers</Label>
+                    <Button HorizontalAlignment="Right" Margin="0,86,33,0" Name="StampClientsWithSelectedYearButton" Width="278" Click="StampClientssWithSelectedYearButton_Click" Height="43" VerticalAlignment="Top">Stamp Client's Year__Last__Delivered__To = ****</Button>
+                    <Button Height="43" HorizontalAlignment="Left" Margin="22,63,0,0" Name="button1" VerticalAlignment="Top" Width="165" Click="ImportDeliverersFromExcel_Click">Import Deliverers From Excel</Button>
+                    <Label FontSize="18" Margin="0,35.92,33,0" Name="label2" Height="37.04" VerticalAlignment="Top" HorizontalAlignment="Right" Width="271">Stamp Clients with Current Year</Label>
+                    <Label FontSize="18" Margin="0,173,13,196" Name="label3" HorizontalAlignment="Right" Width="298">Stamp Deliverers with Current Year</Label>
+                    <Button Margin="0,0,33,147" Name="StampDeliverersWithSelectedYearButton" Click="StampDeliverersWithSelectedYearButton_Click" HorizontalAlignment="Right" Width="278" Height="43.04" VerticalAlignment="Bottom">Stamp Deliverer's Year__Last__Delivered = ****</Button>
+                    <Label Content="Assign Clients to Deliverers" FontSize="18" HorizontalAlignment="Left" Margin="22,273,0,96" Name="label7" Width="301" />
+                    <Button Content="Assign Clients to Deliverers" Height="43" HorizontalAlignment="Left" Margin="22,0,0,40" Name="AssignClientsToDeliverersButton" VerticalAlignment="Bottom" Width="161" Click="AssignClientsToDeliverersButton_Click" />
+                    <Label Content="Auto Assign Client History To Deliverers" FontSize="18" Height="37.04" HorizontalAlignment="Left" Margin="22,148,0,0" Name="AutoAssignLabel" VerticalAlignment="Top" Width="517" />
+                    <Button Content="Auto Assign Client History To Deliverers" Height="44" HorizontalAlignment="Left" Margin="22,191,0,0" Name="AutoAssignClientHistoryToDeliverersButton" VerticalAlignment="Top" Width="243" Click="AutoAssignClientHistoryToDeliverersButton_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Deliverer Maps" Name="tabItem5">
+                <Grid>
+                    <Label FontSize="18" Height="37" HorizontalAlignment="Left" Margin="10,10,0,0" Name="GenerateDelivererPacketsLabel" VerticalAlignment="Top" Width="299">Generate Deliverer Packets</Label>
+                    <Button Content="Generate Deliverer Packets" Height="37" HorizontalAlignment="Left" Margin="10,53,0,0" Name="PrepareDelivererPacketsButton" VerticalAlignment="Top" Width="226" Click="GenerateDelivererPacketsButton_Click" />
+                    <Label Content="Generate Unassigned Client Packets" FontSize="18" Height="37" HorizontalAlignment="Left" Margin="6,129,0,0" Name="GenerateUnassignedClientPacketsLabel" VerticalAlignment="Top" Width="303" />
+                    <Button Content="Generate Unassigned Client Packets" Height="37" HorizontalAlignment="Left" Margin="10,172,0,0" Name="button2" VerticalAlignment="Top" Width="226" Click="GenerateUnassignedClientPacketsButton_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Day of Event" Name="tabItem6">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="379*" />
+                        <ColumnDefinition Width="381*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Height="42" HorizontalAlignment="Left" Margin="10,52,0,0" Name="ExcelListofClientsForEventButtons" VerticalAlignment="Top" Width="234" Click="ExcelListofClientsForEventButtons_Click">Excel List of Clients For Event</Button>
+                    <Label FontSize="18" Height="37" HorizontalAlignment="Left" Margin="10,10,0,0" Name="DayOfEventLists" VerticalAlignment="Top" Width="299">Day of Event Lists</Label>
+                    <Button Height="42" HorizontalAlignment="Left" Margin="10,114,0,0" Name="ExcelListofDeliverersForEventButtons" VerticalAlignment="Top" Width="234" Click="ExcelListofDeliverersForEventButtons_Click">Excel List of Deliverers For Event</Button>
+                    <Label FontSize="18" HorizontalAlignment="Left" Margin="10,192,0,177" Name="label5" Width="301">Generate Unassigned Clients Map</Label>
+                    <Button Height="43.04" HorizontalAlignment="Left" Margin="10,0,0,128" Name="GenerateUnassignedClientsMapButton" VerticalAlignment="Bottom" Width="293" Click="GenerateUnassignedClientsMapButton_Click">Generate Unassigned Clients Map</Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Reports" Name="tabItem7">
+                <Grid />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
