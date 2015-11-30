@@ -175,3 +175,27 @@ C:\Users\SHup\Google Drive\ChristmasBaskets\2014\ChristmasBasketsDashboard\obj\D
 C:\Users\SHup\Google Drive\ChristmasBaskets\2014\ChristmasBasketsDashboard\obj\Debug\Christmas Basket Dashboard.g.resources
 C:\Users\SHup\Google Drive\ChristmasBaskets\2014\ChristmasBasketsDashboard\obj\Debug\ChristmasBasketsDashboard.Properties.Resources.resources
 C:\Users\SHup\Google Drive\ChristmasBaskets\2014\ChristmasBasketsDashboard\obj\Debug\ChristmasBasketsDashboard.csproj.GenerateResource.Cache
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\bin\Debug\Christmas Basket Dashboard.exe.config
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\ChristmasBasketsDashboard.csproj.ResolveComReference.cache
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\Christmas Basket Dashboard.exe
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\Christmas Basket Dashboard.pdb
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\bin\Debug\Christmas Basket Dashboard.exe
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\bin\Debug\Christmas Basket Dashboard.pdb
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\ChristmasBasketsDashboard.csprojResolveAssemblyReference.cache
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\DialogImportDeliverersFromExcelHelper.baml
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\WindowAssignClientsToDeliverer.baml
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\WindowDelivererAssignmentDash.baml
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\WindowSelectYear.baml
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\DialogImportClientsFromExcelHelper.baml
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\Main.baml
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\DialogImportDeliverersFromExcelHelper.g.cs
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\WindowAssignClientsToDeliverer.g.cs
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\WindowDelivererAssignmentDash.g.cs
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\WindowSelectYear.g.cs
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\DialogImportClientsFromExcelHelper.g.cs
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\Main.g.cs
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\App.g.cs
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\Christmas Basket Dashboard_MarkupCompile.cache
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\Christmas Basket Dashboard.g.resources
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\ChristmasBasketsDashboard.Properties.Resources.resources
+C:\GitHubPublic\ChristmasBasketCsharp\ChristmasBaskets\2015\ChristmasBasketsDashboard\obj\Debug\ChristmasBasketsDashboard.csproj.GenerateResource.Cache
