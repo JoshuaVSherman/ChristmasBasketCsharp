@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+      <title>Deliverer(255):  Johnny Ramirez</title>
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      <script type="text/javascript">
+
+      var map;
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+      var directionsService = new google.maps.DirectionsService();
+      var start = "1501 Roanoke Blvd Salem, VA 24153";
+      var end = "1501 Roanoke Blvd Salem, VA 24153";
+      var addresses = ["1710 Saunja Circle Apt. A Vinton, VA  24179","1932 Wise Ave. SE Roanoke, VA  24013","7274 South Barrens Road #102 Roanoke, VA  24179","129 Hershberger Road Apt. 117 Roanoke, VA  null","4435 Oliver Road NE Roanoke, VA  24012","908 Greenhurst Apt. 9 Roanoke, VA  24012","3105 Ellsworth St. NE Roanoke, VA  null","1010 Hershberger Road Apt. 7 Roanoke, VA  24012"];
+
+      var unassignedClientImage = "UnassignedClient.png";
+      var mapCenterAddress = "2147 Dale Avenue Southeast Roanoke, VA 24013";
+      function initialize()
+      {
+         //Create map options
+         var myOptions = {mapTypeId: google.maps.MapTypeId.ROADMAP};
+
+         //Create map and direction display
+         map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+         directionsDisplay.setMap(map);
+         directionsDisplay.setPanel(document.getElementById("directions_panel"));
+
+         //Calculate the proper route
+         calcRoute();
+      }
+
+      //Calculate Client Route
+      function calcRoute()
+      {
+         //Build waypoints object
+         var waypts = [];
+
+         for (var i = 0; i < addresses.length; i++)
+         {
+            waypts.push({location:addresses[i],stopover:true});
+         }
+
+         //Build Request
+         var request = {
+         origin: start,
+         destination: end,
+         waypoints: waypts,
+         optimizeWaypoints: true,
+         travelMode: google.maps.DirectionsTravelMode.DRIVING};
+
+         //Show directions
+         directionsService.route(request,
+         function(response, status)
+         {
+            if (status == google.maps.DirectionsStatus.OK)
+            {
+               directionsDisplay.setDirections(response);
+            }
+            else
+            {
+               //Alert - Route Generation not successful
+               alert("calcRoute - Route Generation was not successful for the following reason: (" + status + ")");
+            }
+         });
+      }
+
+      </script>
+   </head>
+
+   <body onload="initialize()">
+      <!-- General Instructions -->
+      <h2>General Instructions:</h2>
+      <div style="width:700px;height:85px;border:6px outset red;">
+      <font size = 3> Each delivery consists of two boxes; a red and a green.
+      The recipient needs to sign a USDA form upon delivery.
+      If a box cannot be delivered, call Dick Stanfield at 540-353-7977 for assistance.
+      Undelivered boxes should be returned to the west gate of GE at 1501 Roanoke Blvd Salem, VA.
+      If returning a box, be sure to include the corresponding USDA form.</font></div>
+      <!-- Deliverer -->
+      <h2>Deliverer:   Ramirez, Johnny - Number of Clients (8) - Number Of Boxes (16)</h2>
+
+      <!-- Google Map -->
+      <h2>Suggested Route:</h2>
+      <div id="map_canvas" style="width:800px; height:800px;"></div>
+      <div style="page-break-before:always;"></div>
+
+      <!-- Google Directions -->
+      <h2>Directions:  Leaving From GE</h2>
+      <div id="directions_panel"></div>
+      <div style="page-break-before:always;"></div>
+
+      <!-- Client Information Table-->
+      <h2 align = "left">Client Information</h2>
+      <table align = "left" width="100%" border="1">
+      <!-- Table Headings -->
+      <tr>
+         <th width = "10%">Client ID</th>
+         <th width = "20%">Client Name</th>
+         <th width = "30%">Street Address</th>
+         <th width = "10%">City</th>
+         <th width = "10%">Zip</th>
+         <th width = "10%">Phone</th>
+         <th width = "10%">Organization</th>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4676</td>
+         <td>Emma Fuller</td>
+         <td>1710 Saunja Circle Apt. A</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>793-7072</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4480</td>
+         <td>Michael Doyle</td>
+         <td>1932 Wise Ave. SE</td>
+         <td>Roanoke</td>
+         <td>24013</td>
+         <td>540-467-2011</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4823</td>
+         <td>AJ Lawson</td>
+         <td>7274 South Barrens Road #102</td>
+         <td>Roanoke</td>
+         <td>24179</td>
+         <td>904-7204</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4673</td>
+         <td>Carolyn  Farris</td>
+         <td>129 Hershberger Road Apt. 117</td>
+         <td>Roanoke</td>
+         <td>null</td>
+         <td>540-353-6627</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4913</td>
+         <td>Lloyd Miller</td>
+         <td>4435 Oliver Road NE</td>
+         <td>Roanoke</td>
+         <td>24012</td>
+         <td>540-366-5477</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4896</td>
+         <td>Maybelle Hunter</td>
+         <td>908 Greenhurst Apt. 9</td>
+         <td>Roanoke</td>
+         <td>24012</td>
+         <td>540-366-7285</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4746</td>
+         <td>Betty Payne</td>
+         <td>3105 Ellsworth St. NE</td>
+         <td>Roanoke</td>
+         <td>null</td>
+         <td>540-366-2695</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4947</td>
+         <td>Shirley Welcher</td>
+         <td>1010 Hershberger Road Apt. 7</td>
+         <td>Roanoke</td>
+         <td>24012</td>
+         <td>540-563-5355</td>
+         <td>LOA</td>
+      </tr>
+
+      </table>
+      <!-- Client Specific Notes -->
+      <h2 align = "left">Client Specific Notes</h2>
+      <table align = "left" width="100%" border="1">
+      <!-- Table Headings -->
+      <tr>
+         <th width = "10%">Client ID</th>
+         <th width = "20%">Client Name</th>
+         <th width = "70%">Comments</th>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4676</td>
+         <td>Emma Fuller</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4480</td>
+         <td>Michael Doyle</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4823</td>
+         <td>AJ Lawson</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4673</td>
+         <td>Carolyn  Farris</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4913</td>
+         <td>Lloyd Miller</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4896</td>
+         <td>Maybelle Hunter</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4746</td>
+         <td>Betty Payne</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4947</td>
+         <td>Shirley Welcher</td>
+         <td>null</td>
+      </tr>
+      </table>
+   </body>
+</html>

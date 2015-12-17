@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+      <title>Deliverer(414):  Robert Wallace</title>
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      <script type="text/javascript">
+
+      var map;
+      var directionsDisplay = new google.maps.DirectionsRenderer();
+      var directionsService = new google.maps.DirectionsService();
+      var start = "1501 Roanoke Blvd Salem, VA 24153";
+      var end = "1721 Sanja Circle #F Vinton, VA  24179";
+      var addresses = ["208 Laurel Hill Drive #6 Vinton, VA  24179","1745 Saunja Circle Apt. E Vinton, VA  24179","855 East Washington Avenue Apt. C7 Vinton, VA  24179","836 Washington Ave Vinton, VA  24179","123  Walnut Avenue Vinton, VA  24179","1714 A Saunja Circle  Vinton, VA  24179","1724  Saunja Circle Apt. F Vinton, VA  24179","1705  Saunja Circle Apt. D VINTON, VA  24179"];
+
+      var unassignedClientImage = "UnassignedClient.png";
+      var mapCenterAddress = "2147 Dale Avenue Southeast Roanoke, VA 24013";
+      function initialize()
+      {
+         //Create map options
+         var myOptions = {mapTypeId: google.maps.MapTypeId.ROADMAP};
+
+         //Create map and direction display
+         map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+         directionsDisplay.setMap(map);
+         directionsDisplay.setPanel(document.getElementById("directions_panel"));
+
+         //Calculate the proper route
+         calcRoute();
+      }
+
+      //Calculate Client Route
+      function calcRoute()
+      {
+         //Build waypoints object
+         var waypts = [];
+
+         for (var i = 0; i < addresses.length; i++)
+         {
+            waypts.push({location:addresses[i],stopover:true});
+         }
+
+         //Build Request
+         var request = {
+         origin: start,
+         destination: end,
+         waypoints: waypts,
+         optimizeWaypoints: true,
+         travelMode: google.maps.DirectionsTravelMode.DRIVING};
+
+         //Show directions
+         directionsService.route(request,
+         function(response, status)
+         {
+            if (status == google.maps.DirectionsStatus.OK)
+            {
+               directionsDisplay.setDirections(response);
+            }
+            else
+            {
+               //Alert - Route Generation not successful
+               alert("calcRoute - Route Generation was not successful for the following reason: (" + status + ")");
+            }
+         });
+      }
+
+      </script>
+   </head>
+
+   <body onload="initialize()">
+      <!-- General Instructions -->
+      <h2>General Instructions:</h2>
+      <div style="width:700px;height:85px;border:6px outset red;">
+      <font size = 3> Each delivery consists of two boxes; a red and a green.
+      The recipient needs to sign a USDA form upon delivery.
+      If a box cannot be delivered, call Dick Stanfield at 540-353-7977 for assistance.
+      Undelivered boxes should be returned to the west gate of GE at 1501 Roanoke Blvd Salem, VA.
+      If returning a box, be sure to include the corresponding USDA form.</font></div>
+      <!-- Deliverer -->
+      <h2>Deliverer:   Wallace, Robert - Number of Clients (10) - Number Of Boxes (20)</h2>
+
+      <!-- Google Map -->
+      <h2>Suggested Route:</h2>
+      <div id="map_canvas" style="width:800px; height:800px;"></div>
+      <div style="page-break-before:always;"></div>
+
+      <!-- Google Directions -->
+      <h2>Directions:  Leaving From GE</h2>
+      <div id="directions_panel"></div>
+      <div style="page-break-before:always;"></div>
+
+      <!-- Client Information Table-->
+      <h2 align = "left">Client Information</h2>
+      <table align = "left" width="100%" border="1">
+      <!-- Table Headings -->
+      <tr>
+         <th width = "10%">Client ID</th>
+         <th width = "20%">Client Name</th>
+         <th width = "30%">Street Address</th>
+         <th width = "10%">City</th>
+         <th width = "10%">Zip</th>
+         <th width = "10%">Phone</th>
+         <th width = "10%">Organization</th>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4807</td>
+         <td>Martha Davis</td>
+         <td>208 Laurel Hill Drive #6</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>890-3685</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4739</td>
+         <td>Carmen Noto</td>
+         <td>1745 Saunja Circle Apt. E</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>293-1365</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4757</td>
+         <td>Mark Robertson</td>
+         <td>855 East Washington Avenue Apt. C7</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>420-8816</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4143</td>
+         <td>Russell Robinson</td>
+         <td>836 Washington Ave</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>293-6798</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4766</td>
+         <td>Calvin Settle</td>
+         <td>123  Walnut Avenue</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>491-3099</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4894</td>
+         <td>Garnie Huffman</td>
+         <td>1714 A Saunja Circle </td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>540-798-3547</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4849</td>
+         <td>Carole Webb</td>
+         <td>1724  Saunja Circle Apt. F</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>206-3531</td>
+         <td>RCSS</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>2559</td>
+         <td>IRENE PARRISH</td>
+         <td>1705  Saunja Circle Apt. D</td>
+         <td>VINTON</td>
+         <td>24179</td>
+         <td>540-581-0609</td>
+         <td>LOA</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4928</td>
+         <td>Julia Rader </td>
+         <td>1721 Sanja Circle #F</td>
+         <td>Vinton</td>
+         <td>24179</td>
+         <td>540-563-1805</td>
+         <td>LOA</td>
+      </tr>
+
+      </table>
+      <!-- Client Specific Notes -->
+      <h2 align = "left">Client Specific Notes</h2>
+      <table align = "left" width="100%" border="1">
+      <!-- Table Headings -->
+      <tr>
+         <th width = "10%">Client ID</th>
+         <th width = "20%">Client Name</th>
+         <th width = "70%">Comments</th>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4807</td>
+         <td>Martha Davis</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4739</td>
+         <td>Carmen Noto</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4757</td>
+         <td>Mark Robertson</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4143</td>
+         <td>Russell Robinson</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4766</td>
+         <td>Calvin Settle</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4894</td>
+         <td>Garnie Huffman</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4849</td>
+         <td>Carole Webb</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>2559</td>
+         <td>IRENE PARRISH</td>
+         <td>null</td>
+      </tr>
+      <!-- Client Data -->
+      <tr>
+         <td>4928</td>
+         <td>Julia Rader </td>
+         <td>null</td>
+      </tr>
+      </table>
+   </body>
+</html>
